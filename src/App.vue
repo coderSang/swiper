@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <swiper>
+      <swiper-item v-for="(item,index) in myUrl" :key="index">
+        <img :src="item" alt="">
+      </swiper-item>
+    </swiper>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import Swiper from "./components/swiper/Swiper";
+  import SwiperItem from "./components/swiper/SwiperItem";
+
+  export default {
+    name: 'App',
+    components: {SwiperItem, Swiper},
+    data() {
+      return {
+        myUrl: ["http://img3m4.ddimg.cn/21/16/27932574-1_h_5.jpg",
+          "http://img3m4.ddimg.cn/21/16/27932574-2_e_6.jpg",
+          "http://img3m4.ddimg.cn/21/16/27932574-3_e_6.jpg",
+        ]
+      }
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
